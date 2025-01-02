@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dictionary-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dictionary-backend
+  template:
+    metadata:
+      labels:
+        app: dictionary-backend
+    spec:
+      containers:
+      - name: dictionary-backend
+        image: your-dockerhub-username/dictionary-backend:latest
+        ports:
+        - containerPort: 8080
