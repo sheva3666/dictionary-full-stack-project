@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dictionary-graphql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dictionary-graphql
+  template:
+    metadata:
+      labels:
+        app: dictionary-graphql
+    spec:
+      containers:
+      - name: dictionary-graphql
+        image: your-dockerhub-username/dictionary-graphql:latest
+        ports:
+        - containerPort: 4000
