@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dictionary-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dictionary-client
+  template:
+    metadata:
+      labels:
+        app: dictionary-client
+    spec:
+      containers:
+      - name: dictionary-client
+        image: your-dockerhub-username/dictionary-client:latest
+        ports:
+        - containerPort: 80
